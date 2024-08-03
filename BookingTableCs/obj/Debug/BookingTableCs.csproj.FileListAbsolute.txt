@@ -1,0 +1,10 @@
+C:\Users\ASUS\OneDrive\Máy tính\App_BookingTable\BookingTableCs\BookingTableCs\bin\Debug\BookingTableCs.exe.config
+C:\Users\ASUS\OneDrive\Máy tính\App_BookingTable\BookingTableCs\BookingTableCs\bin\Debug\BookingTableCs.exe
+C:\Users\ASUS\OneDrive\Máy tính\App_BookingTable\BookingTableCs\BookingTableCs\bin\Debug\BookingTableCs.pdb
+C:\Users\ASUS\OneDrive\Máy tính\App_BookingTable\BookingTableCs\BookingTableCs\obj\Debug\BookingTableCs.csproj.AssemblyReference.cache
+C:\Users\ASUS\OneDrive\Máy tính\App_BookingTable\BookingTableCs\BookingTableCs\obj\Debug\BookingTableCs.Properties.Resources.resources
+C:\Users\ASUS\OneDrive\Máy tính\App_BookingTable\BookingTableCs\BookingTableCs\obj\Debug\BookingTableCs.csproj.GenerateResource.cache
+C:\Users\ASUS\OneDrive\Máy tính\App_BookingTable\BookingTableCs\BookingTableCs\obj\Debug\BookingTableCs.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\OneDrive\Máy tính\App_BookingTable\BookingTableCs\BookingTableCs\obj\Debug\BookingTableCs.exe
+C:\Users\ASUS\OneDrive\Máy tính\App_BookingTable\BookingTableCs\BookingTableCs\obj\Debug\BookingTableCs.pdb
+C:\Users\ASUS\OneDrive\Máy tính\App_BookingTable\BookingTableCs\BookingTableCs\obj\Debug\BookingTableCs.fbooking.resources
