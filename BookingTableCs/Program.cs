@@ -1,8 +1,10 @@
 ﻿using System;
+using TableBooking;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace BookingTableCs
 {
@@ -16,7 +18,7 @@ namespace BookingTableCs
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fbooking());
+            Application.Run(new fNotification());
         }
     }
 }

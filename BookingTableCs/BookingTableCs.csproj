@@ -51,25 +51,49 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BookingTableDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="fbooking.cs">
+    <Compile Include="Form\fCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fbooking.Designer.cs">
-      <DependentUpon>fbooking.cs</DependentUpon>
+    <Compile Include="Form\fCustomer.Designer.cs">
+      <DependentUpon>fCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Form\fManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Form\fManager.Designer.cs">
+      <DependentUpon>fManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\fNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\fNotification.Designer.cs">
+      <DependentUpon>fNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\fTableManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\fTableManage.Designer.cs">
+      <DependentUpon>fTableManage.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Booking.cs" />
     <Compile Include="Model\Table.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="fbooking.resx">
-      <DependentUpon>fbooking.cs</DependentUpon>
+    <EmbeddedResource Include="Form\fCustomer.resx">
+      <DependentUpon>fCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\fManager.resx">
+      <DependentUpon>fManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\fNotification.resx">
+      <DependentUpon>fNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\fTableManage.resx">
+      <DependentUpon>fTableManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\BookingTableCs.fbooking.resources" />
+    <EmbeddedResource Include="obj\Debug\BookingTableCs.Properties.Resources.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -79,6 +103,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="bin\Debug\BookingTableCs.exe.config" />
     <None Include="BookingTableDataSet.xsc">
       <DependentUpon>BookingTableDataSet.xsd</DependentUpon>
     </None>
@@ -90,6 +115,12 @@
     <None Include="BookingTableDataSet.xss">
       <DependentUpon>BookingTableDataSet.xsd</DependentUpon>
     </None>
+    <None Include="obj\Debug\BookingTableCs.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\BookingTableCs.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\BookingTableCs.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Release\BookingTableCs.csproj.AssemblyReference.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -102,6 +133,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\BookingTableCs.exe" />
+    <Content Include="bin\Debug\BookingTableCs.pdb" />
+    <Content Include="obj\Debug\BookingTableCs.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\BookingTableCs.exe" />
+    <Content Include="obj\Debug\BookingTableCs.pdb" />
+    <Content Include="obj\Debug\TempPE\BookingTableDataSet.Designer.cs.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
