@@ -28,53 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlTableList = new System.Windows.Forms.Panel();
-            this.lblTableInfo = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
             this.pnlBooking = new System.Windows.Forms.Panel();
             this.btnBook = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.GNum = new System.Windows.Forms.NumericUpDown();
+            this.nudNumGuest = new System.Windows.Forms.NumericUpDown();
             this.lblGNum = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.cmbTableNumber = new System.Windows.Forms.ComboBox();
             this.lblTableNum = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtnumPhone = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNameCustomer = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpCustomerBook = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblBooking = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.dtgvListTable = new System.Windows.Forms.DataGridView();
+            this.dtgvCustomer = new System.Windows.Forms.DataGridView();
             this.pnlBooking.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumGuest)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCustomer)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pnlTableList
-            // 
-            this.pnlTableList.Location = new System.Drawing.Point(393, 46);
-            this.pnlTableList.Name = "pnlTableList";
-            this.pnlTableList.Size = new System.Drawing.Size(403, 351);
-            this.pnlTableList.TabIndex = 1;
-            this.pnlTableList.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTableList_Paint);
-            // 
-            // lblTableInfo
-            // 
-            this.lblTableInfo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTableInfo.Location = new System.Drawing.Point(537, 9);
-            this.lblTableInfo.Name = "lblTableInfo";
-            this.lblTableInfo.Size = new System.Drawing.Size(129, 59);
-            this.lblTableInfo.TabIndex = 2;
-            this.lblTableInfo.Text = "Table Information";
-            this.lblTableInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblTableInfo.Click += new System.EventHandler(this.lblTableInfo_Click);
             // 
             // pnlBooking
             // 
@@ -85,18 +72,20 @@
             this.pnlBooking.Controls.Add(this.panel2);
             this.pnlBooking.Controls.Add(this.panel3);
             this.pnlBooking.Controls.Add(this.panel1);
-            this.pnlBooking.Location = new System.Drawing.Point(12, 46);
+            this.pnlBooking.Location = new System.Drawing.Point(13, 65);
+            this.pnlBooking.Margin = new System.Windows.Forms.Padding(4);
             this.pnlBooking.Name = "pnlBooking";
-            this.pnlBooking.Size = new System.Drawing.Size(361, 351);
+            this.pnlBooking.Size = new System.Drawing.Size(447, 432);
             this.pnlBooking.TabIndex = 3;
             this.pnlBooking.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBooking_Paint);
             // 
             // btnBook
             // 
             this.btnBook.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBook.Location = new System.Drawing.Point(109, 289);
+            this.btnBook.Location = new System.Drawing.Point(145, 356);
+            this.btnBook.Margin = new System.Windows.Forms.Padding(4);
             this.btnBook.Name = "btnBook";
-            this.btnBook.Size = new System.Drawing.Size(86, 32);
+            this.btnBook.Size = new System.Drawing.Size(115, 39);
             this.btnBook.TabIndex = 5;
             this.btnBook.Text = "Book";
             this.btnBook.UseVisualStyleBackColor = true;
@@ -104,26 +93,29 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.GNum);
+            this.panel4.Controls.Add(this.nudNumGuest);
             this.panel4.Controls.Add(this.lblGNum);
-            this.panel4.Location = new System.Drawing.Point(19, 177);
+            this.panel4.Location = new System.Drawing.Point(25, 218);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(254, 40);
+            this.panel4.Size = new System.Drawing.Size(339, 49);
             this.panel4.TabIndex = 3;
             // 
-            // GNum
+            // nudNumGuest
             // 
-            this.GNum.Location = new System.Drawing.Point(128, 12);
-            this.GNum.Name = "GNum";
-            this.GNum.Size = new System.Drawing.Size(120, 20);
-            this.GNum.TabIndex = 1;
+            this.nudNumGuest.Location = new System.Drawing.Point(171, 15);
+            this.nudNumGuest.Margin = new System.Windows.Forms.Padding(4);
+            this.nudNumGuest.Name = "nudNumGuest";
+            this.nudNumGuest.Size = new System.Drawing.Size(160, 22);
+            this.nudNumGuest.TabIndex = 1;
             // 
             // lblGNum
             // 
             this.lblGNum.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGNum.Location = new System.Drawing.Point(-1, 9);
+            this.lblGNum.Location = new System.Drawing.Point(-1, 11);
+            this.lblGNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGNum.Name = "lblGNum";
-            this.lblGNum.Size = new System.Drawing.Size(139, 23);
+            this.lblGNum.Size = new System.Drawing.Size(185, 28);
             this.lblGNum.TabIndex = 0;
             this.lblGNum.Text = "Number of guest:";
             this.lblGNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,25 +125,28 @@
             // 
             this.panel5.Controls.Add(this.cmbTableNumber);
             this.panel5.Controls.Add(this.lblTableNum);
-            this.panel5.Location = new System.Drawing.Point(19, 223);
+            this.panel5.Location = new System.Drawing.Point(25, 274);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(254, 40);
+            this.panel5.Size = new System.Drawing.Size(339, 49);
             this.panel5.TabIndex = 4;
             // 
             // cmbTableNumber
             // 
             this.cmbTableNumber.FormattingEnabled = true;
-            this.cmbTableNumber.Location = new System.Drawing.Point(127, 8);
+            this.cmbTableNumber.Location = new System.Drawing.Point(169, 10);
+            this.cmbTableNumber.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTableNumber.Name = "cmbTableNumber";
-            this.cmbTableNumber.Size = new System.Drawing.Size(121, 21);
+            this.cmbTableNumber.Size = new System.Drawing.Size(160, 24);
             this.cmbTableNumber.TabIndex = 1;
             // 
             // lblTableNum
             // 
             this.lblTableNum.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTableNum.Location = new System.Drawing.Point(4, 8);
+            this.lblTableNum.Location = new System.Drawing.Point(5, 10);
+            this.lblTableNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTableNum.Name = "lblTableNum";
-            this.lblTableNum.Size = new System.Drawing.Size(113, 23);
+            this.lblTableNum.Size = new System.Drawing.Size(151, 28);
             this.lblTableNum.TabIndex = 0;
             this.lblTableNum.Text = "Table Number:";
             this.lblTableNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -159,26 +154,29 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.txtnumPhone);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(20, 131);
+            this.panel2.Location = new System.Drawing.Point(27, 161);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(254, 40);
+            this.panel2.Size = new System.Drawing.Size(339, 49);
             this.panel2.TabIndex = 2;
             // 
-            // textBox1
+            // txtnumPhone
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(135, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtnumPhone.Location = new System.Drawing.Point(151, 14);
+            this.txtnumPhone.Margin = new System.Windows.Forms.Padding(4);
+            this.txtnumPhone.Name = "txtnumPhone";
+            this.txtnumPhone.Size = new System.Drawing.Size(179, 22);
+            this.txtnumPhone.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-4, 11);
+            this.label1.Location = new System.Drawing.Point(-5, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 23);
+            this.label1.Size = new System.Drawing.Size(177, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Phone Number:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -186,26 +184,29 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.txtNameCustomer);
             this.panel3.Controls.Add(this.lblName);
-            this.panel3.Location = new System.Drawing.Point(20, 85);
+            this.panel3.Location = new System.Drawing.Point(27, 105);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(254, 40);
+            this.panel3.Size = new System.Drawing.Size(339, 49);
             this.panel3.TabIndex = 1;
             // 
-            // textBox2
+            // txtNameCustomer
             // 
-            this.textBox2.Location = new System.Drawing.Point(65, 11);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(183, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtNameCustomer.Location = new System.Drawing.Point(87, 14);
+            this.txtNameCustomer.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNameCustomer.Name = "txtNameCustomer";
+            this.txtNameCustomer.Size = new System.Drawing.Size(243, 22);
+            this.txtNameCustomer.TabIndex = 1;
             // 
             // lblName
             // 
             this.lblName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(2, 11);
+            this.lblName.Location = new System.Drawing.Point(3, 14);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(62, 23);
+            this.lblName.Size = new System.Drawing.Size(83, 28);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Name:";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -213,26 +214,29 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.dtpCustomerBook);
             this.panel1.Controls.Add(this.lblDate);
-            this.panel1.Location = new System.Drawing.Point(19, 39);
+            this.panel1.Location = new System.Drawing.Point(25, 48);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(254, 40);
+            this.panel1.Size = new System.Drawing.Size(339, 49);
             this.panel1.TabIndex = 0;
             // 
-            // dateTimePicker1
+            // dtpCustomerBook
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(65, 9);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(183, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dtpCustomerBook.Location = new System.Drawing.Point(87, 11);
+            this.dtpCustomerBook.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpCustomerBook.Name = "dtpCustomerBook";
+            this.dtpCustomerBook.Size = new System.Drawing.Size(243, 22);
+            this.dtpCustomerBook.TabIndex = 0;
             // 
             // lblDate
             // 
             this.lblDate.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(-4, 9);
+            this.lblDate.Location = new System.Drawing.Point(-5, 11);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(65, 23);
+            this.lblDate.Size = new System.Drawing.Size(87, 28);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "Date:";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -240,24 +244,47 @@
             // lblBooking
             // 
             this.lblBooking.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBooking.Location = new System.Drawing.Point(117, 27);
+            this.lblBooking.Location = new System.Drawing.Point(156, 33);
+            this.lblBooking.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBooking.Name = "lblBooking";
-            this.lblBooking.Size = new System.Drawing.Size(100, 23);
+            this.lblBooking.Size = new System.Drawing.Size(133, 28);
             this.lblBooking.TabIndex = 0;
             this.lblBooking.Text = "Booking";
             this.lblBooking.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblBooking.Click += new System.EventHandler(this.lblBooking_Click);
             // 
+            // dtgvListTable
+            // 
+            this.dtgvListTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvListTable.Location = new System.Drawing.Point(510, 65);
+            this.dtgvListTable.Name = "dtgvListTable";
+            this.dtgvListTable.RowHeadersWidth = 51;
+            this.dtgvListTable.RowTemplate.Height = 24;
+            this.dtgvListTable.Size = new System.Drawing.Size(530, 257);
+            this.dtgvListTable.TabIndex = 4;
+            // 
+            // dtgvCustomer
+            // 
+            this.dtgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvCustomer.Location = new System.Drawing.Point(510, 349);
+            this.dtgvCustomer.Name = "dtgvCustomer";
+            this.dtgvCustomer.RowHeadersWidth = 51;
+            this.dtgvCustomer.RowTemplate.Height = 24;
+            this.dtgvCustomer.Size = new System.Drawing.Size(530, 148);
+            this.dtgvCustomer.TabIndex = 5;
+            this.dtgvCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCustomer_CellContentClick);
+            // 
             // fCustomer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(808, 461);
-            this.Controls.Add(this.lblBooking);
-            this.Controls.Add(this.lblTableInfo);
+            this.ClientSize = new System.Drawing.Size(1077, 567);
+            this.Controls.Add(this.dtgvCustomer);
+            this.Controls.Add(this.dtgvListTable);
             this.Controls.Add(this.pnlBooking);
-            this.Controls.Add(this.pnlTableList);
+            this.Controls.Add(this.lblBooking);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customer";
@@ -265,37 +292,42 @@
             this.Load += new System.EventHandler(this.fTableManager_Load);
             this.pnlBooking.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumGuest)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCustomer)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel pnlTableList;
-        private System.Windows.Forms.Label lblTableInfo;
         private System.Windows.Forms.Panel pnlBooking;
         private System.Windows.Forms.Label lblBooking;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpCustomerBook;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNameCustomer;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblGNum;
-        private System.Windows.Forms.NumericUpDown GNum;
+        private System.Windows.Forms.NumericUpDown nudNumGuest;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label lblTableNum;
         private System.Windows.Forms.ComboBox cmbTableNumber;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtnumPhone;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBook;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.DataGridView dtgvListTable;
+        private System.Windows.Forms.DataGridView dtgvCustomer;
     }
 }

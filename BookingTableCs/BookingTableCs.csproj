@@ -51,6 +51,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BookingTableDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Database\DTB.cs" />
+    <Compile Include="Form\fLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\fLogin.Designer.cs">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\fCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,10 +83,15 @@
       <DependentUpon>fTableManage.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Booking.cs" />
+    <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Table.cs" />
     <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="Process\MyProcess.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form\fLogin.resx">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\fCustomer.resx">
       <DependentUpon>fCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +149,8 @@
   <ItemGroup>
     <Content Include="bin\Debug\BookingTableCs.exe" />
     <Content Include="bin\Debug\BookingTableCs.pdb" />
+    <Content Include="Database\databaseAppBookingTabe.sql" />
+    <Content Include="Database\SQLAppTableBooking.sql" />
     <Content Include="obj\Debug\BookingTableCs.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\BookingTableCs.exe" />
     <Content Include="obj\Debug\BookingTableCs.pdb" />

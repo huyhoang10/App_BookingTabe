@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BookingTableCs.Process;
 namespace TableBooking
 {
     public partial class fCustomer : Form
@@ -24,7 +24,10 @@ namespace TableBooking
 
         private void fTableManager_Load(object sender, EventArgs e)
         {
-
+            dtgvListTable.DataSource = MyProcess.LoadDtgvListTable();
+            string commandText = "Select * from Booking ";
+            dtgvCustomer.DataSource = MyProcess.GetDataWithCommand(commandText);
+            //txtNameCustomer.Text = cus
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -102,6 +105,11 @@ namespace TableBooking
         private void pnlTableList_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void dtgvCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }
