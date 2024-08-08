@@ -25,25 +25,6 @@ namespace BookingTableCs
         {
         }
 
-
-        public bool CheckLogin(string numPhone)
-        {
-            string commamdText = "Select * from Customer";
-            DataTable table = MyProcess.GetDataWithCommand(commamdText);
-            for(int rowi=0;rowi<table.Rows.Count;rowi++)
-            {
-                if (table.Rows[rowi]["numPhone"].ToString() == numPhone)
-                {
-                    Customer customer1 = new Customer();
-                    customer1.IdCustomer = Int32.Parse(table.Rows[rowi]["idCustomer"].ToString());
-                    customer1.NameCustomer = table.Rows[rowi]["nameCustomer"].ToString();
-                    customer1.NumPhone = table.Rows[rowi]["numPhone"].ToString();
-                    return true;
-                }
-            }
-            return false;
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Form f = new fCustomer();
@@ -56,5 +37,23 @@ namespace BookingTableCs
             else
                 MessageBox.Show("Account is not registered!","Error");
         }
+        public bool CheckLogin(string numPhone)
+        {
+            string commamdText = "Select * from Customer";
+            DataTable table = MyProcess.GetDataWithCommand(commamdText);
+            for (int rowi = 0; rowi < table.Rows.Count; rowi++)
+            {
+                if (table.Rows[rowi]["numPhone"].ToString() == numPhone)
+                {
+                    int idCustomer = Int32.Parse(table.Rows[rowi]["idCustomer"].ToString());
+                    string nameCustomer = table.Rows[rowi]["nameCustomer"].ToString();
+                    string NumPhone = table.Rows[rowi]["numPhone"].ToString();
+                    MyProcess.GetInfoCustomer(idCustomer, nameCustomer, NumPhone);
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

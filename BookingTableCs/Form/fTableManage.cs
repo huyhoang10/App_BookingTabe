@@ -22,24 +22,24 @@ namespace TableBooking
 
         private void fTableManage_Load(object sender, EventArgs e)
         {
-            LoadDtgv();
+            LoadDtgvListTable();
         }
 
-        void LoadDtgv()
+        void LoadDtgvListTable()
         {
-            dtgvListTable.DataSource = MyProcess.LoadDtgvListTable();
+            dtgvListTable.DataSource = MyProcess.LoadDtgvListTableGetDate();
         }
 
         private void btnAddTable_Click(object sender, EventArgs e)
         {
             
-            DataTable table = MyProcess.LoadDtgvListTable();
+            DataTable table = MyProcess.LoadDtgvListTableGetDate();
             bool checkInsertTable = true;
             for (int i = 0; i < table.Rows.Count; i++)
             {
                 if(nudNumTable.Value == 0 || nudMaxGuest.Value == 0 )
                 {
-                    MessageBox.Show("Lỗi! Bàn nhập không hợp lệ.", "Thông Báo");
+                    MessageBox.Show("Error! Invalid input table.", "Error");
                     checkInsertTable = false;
                     break;
                 }    
@@ -61,7 +61,7 @@ namespace TableBooking
                 SqlCommand command = connection.CreateCommand();
                 command.CommandText = "Insert into isTable (idTable,maxguest) values('"+nudNumTable.Value+"','"+nudMaxGuest.Value+"') ";
                 command.ExecuteNonQuery();
-                LoadDtgv();
+                LoadDtgvListTable();
             }
 
 

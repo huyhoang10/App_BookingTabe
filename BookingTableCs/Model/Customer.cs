@@ -12,10 +12,11 @@ namespace BookingTableCs.Model
         private string nameCustomer;
         private string numPhone ;
 
-        public Customer(int idCustomer, string nameCustomer)
+        public Customer(int idCustomer, string nameCustomer, string numPhone)
         {
             this.idCustomer = idCustomer;
             this.nameCustomer = nameCustomer;
+            this.numPhone = numPhone;
         }
 
         public Customer()
