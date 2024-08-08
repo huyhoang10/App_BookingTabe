@@ -6,17 +6,21 @@ using System.Threading.Tasks;
 
 namespace BookingTableCs.Model
 {
+    
     class OBJTable
     {
+
         private int numTable;
         private int maxGuest;
-        private string status;
+        private int statusTable = 0;
 
         public OBJTable(int numTable, int maxGuest)
         {
             this.numTable = numTable;
             this.maxGuest = maxGuest;
         }
+        //public OBJTable()
+        //{ }
 
         public int NumTable
         {
@@ -28,6 +32,13 @@ namespace BookingTableCs.Model
         {
             get { return maxGuest; }
             set { maxGuest = value; }
+        }
+
+        public int StatusTable
+        {
+            get { return statusTable; }
+            set { statusTable = value; }
+
         }
     }
 }

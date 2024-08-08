@@ -21,3 +21,4 @@ D:\VISUAL STUDIO\huyhoang10\App_BookingTabe\BookingTableCs\obj\Debug\BookingTabl
 D:\VISUAL STUDIO\huyhoang10\App_BookingTabe\BookingTableCs\bin\Debug\BookingTableCs.exe.config
 D:\VISUAL STUDIO\huyhoang10\App_BookingTabe\BookingTableCs\bin\Debug\BookingTableCs.exe
 D:\VISUAL STUDIO\huyhoang10\App_BookingTabe\BookingTableCs\bin\Debug\BookingTableCs.pdb
+D:\VISUAL STUDIO\huyhoang10\App_BookingTabe\BookingTableCs\obj\Debug\BookingTableCs.fLogin.resources

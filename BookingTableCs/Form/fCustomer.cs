@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BookingTableCs.Process;
+using System.Data.SqlClient;
+using BookingTableCs.Database;
 namespace TableBooking
 {
     public partial class fCustomer : Form
@@ -17,34 +19,50 @@ namespace TableBooking
             InitializeComponent();
         }
 
-        private void thToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void fTableManager_Load(object sender, EventArgs e)
         {
 
+            LoadTextBoxInfoCustomer();
+
+            LoadDtgvListTable();
+
+            LoadDtgvCustomer();
+
+            LoadDataCombobox();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        // Region LoadForm
+        private void LoadTextBoxInfoCustomer()
         {
-
+            txtNameCustomer.Text = MyProcess.customer.NameCustomer;
+            txtnumPhone.Text = MyProcess.customer.NumPhone;
+            txtIdCustomer.Text = MyProcess.customer.IdCustomer.ToString();
         }
-
-        private void lblName_Click(object sender, EventArgs e)
+        public void LoadDataCombobox()
         {
-
+            string commandText = "select * from isTable ";
+            DataTable table = MyProcess.GetDataWithCommand(commandText);
+            for(int rowi=0;rowi<table.Rows.Count;rowi++)
+            {
+                cmbTableNumber.Items.Add(table.Rows[rowi]["idTable"]);
+            }
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        public void LoadDtgvListTable()
         {
-            fManager f = new fManager();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            dtgvListTable.DataSource = MyProcess.LoadDtgvListTableGetDate();
         }
 
+        public void LoadDtgvCustomer()
+        {
+            string commandText = "Select idBooking, datebooking, idtable, numguest from Booking "+ 
+                                 "where idCustomer = '"+txtIdCustomer.Text+"' "+
+                                 " order by datebooking DESC";
+            dtgvCustomer.DataSource = MyProcess.GetDataWithCommand(commandText);
+        }
+
+        // end Region
+
+        // Region Form operations
         private void fTableManager_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to close?", "Notification", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
@@ -53,55 +71,72 @@ namespace TableBooking
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();   
         }
+        // end Region
 
-        private void btnReset_Click(object sender, EventArgs e)
+        // Region Search
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            dtgvListTable.DataSource = MyProcess.LoadDtgvListTableSearchDate(dtpCustomerBook.Text);
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
-        {
+        // end Region
 
-        }
-
+        // Region Book
         private void btnBook_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(
-                "Thank you for choosing our restaurant\n" +
-                "Note: You are only able to change or cancel the table information 1 hour before the arrangement",
+            if (CheckBooking() == false)
+                MessageBox.Show("Table reservation error, Please check the information again.", "Error");
+            else
+            {
+                BookingTable();
+                MessageBox.Show(
+                "Thank you for choosing our restaurant.\n",
+                //"Note: You are only able to change or cancel the table information 1 hour before the arrangement",
                 "Note",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
-
+            }
         }
 
-        private void lblBooking_Click(object sender, EventArgs e)
+        // check the validity of the information
+        public bool CheckBooking()
         {
-
+            if (dtpCustomerBook.Value < DateTime.Now)
+                return false;
+            DataTable table = MyProcess.LoadDtgvListTableSearchDate(dtpCustomerBook.Text);
+            int numTable;
+            if (nudNumGuest.Value == 0)
+                return false;
+            if (Int32.TryParse(cmbTableNumber.Text.ToString(),out numTable) == false)
+                return false;
+            if (numTable <= 0 || numTable > table.Rows.Count)
+                return false;
+            if (table.Rows[numTable - 1]["Status"].ToString() == "1")   // -1: because row of table start from 0, "1": status Booked
+                return false;
+            int numGuestCustomerBooking = Int32.Parse(nudNumGuest.Value.ToString());
+            int numMaxGuest = Int32.Parse(table.Rows[numTable - 1]["MaxGuest"].ToString());
+            if (numGuestCustomerBooking > numMaxGuest)
+                return false;
+            return true;
         }
 
-        private void lblTableInfo_Click(object sender, EventArgs e)
+        // Insert info Booking into SQL
+        public void BookingTable()
         {
-
+            SqlConnection connection = DTB.ConnectionSql();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "insert into BOOKING " +
+                                  "(idCustomer, idTable, dateBooking, numGuest) "+
+                                  "values('" + txtIdCustomer.Text + "','" + cmbTableNumber.Text + "','" + dtpCustomerBook.Text + "','" + nudNumGuest.Value.ToString() + "')";
+            command.ExecuteNonQuery();
+            LoadDtgvCustomer();
+            dtgvListTable.DataSource = MyProcess.LoadDtgvListTableSearchDate(dtpCustomerBook.Text);
         }
 
-        private void pnlBooking_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pnlTableList_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        // end Region
     }
 }

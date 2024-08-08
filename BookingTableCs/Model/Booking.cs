@@ -8,19 +8,46 @@ namespace BookingTableCs.Model
 {
     class Booking
     {
-        private string numPhone;
-        private string nameCustomer;
+        //    idCustomer int not null,
+        //idTable int not null,
+        //dateBooking datetime not null,
+        //numGuest int not null,
+
+        private string idCustomer;
         private DateTime dateBooking;
-        private int numTable;
+        private int idTable;
         private int numGuest;
 
-        public Booking(DateTime dateBooking, string nameCustomer, string numPhone, int numTable, int numGuest)
+        public Booking()
+        { }
+        public Booking(DateTime dateBooking, string idCustomer, int idTable, int numGuest)
         {
             this.dateBooking = dateBooking;
-            this.nameCustomer = nameCustomer;
-            this.numPhone = numPhone;
-            this.numTable = numTable;
+            this.idCustomer = idCustomer;
+            this.idTable = idTable;
             this.numGuest = numGuest;
+        }
+
+        public DateTime DateBooking
+        {
+            get { return dateBooking; }
+            set { dateBooking = value; }
+        }
+
+        public string IdCustomer
+        {
+            get { return idCustomer; }
+            set { idCustomer = value; }
+        }
+        public int IdTable
+        {
+            get { return idTable; }
+            set { idTable = value; }
+        }
+        public int NumGuest
+        {
+            get { return numGuest; }
+            set { numGuest = value; }
         }
 
     }

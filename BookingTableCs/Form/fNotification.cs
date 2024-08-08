@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BookingTableCs;
 
 namespace TableBooking
 {
@@ -24,7 +25,7 @@ namespace TableBooking
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
-            fCustomer f = new fCustomer();
+            Form f = new fLogin();
             this.Hide();
             f.ShowDialog();
             this.Show();
