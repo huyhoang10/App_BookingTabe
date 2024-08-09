@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.NumericUpDown nudNumGuest;
             this.lblBooking = new System.Windows.Forms.Label();
             this.pnlBooking = new System.Windows.Forms.Panel();
+            this.btnRegister = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtIdTable = new System.Windows.Forms.TextBox();
@@ -60,9 +60,7 @@
             this.pnlTableList = new System.Windows.Forms.Panel();
             this.dtgvListTable = new System.Windows.Forms.DataGridView();
             this.dtgvListBooking = new System.Windows.Forms.DataGridView();
-            this.btnRegister = new System.Windows.Forms.Button();
-            nudNumGuest = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(nudNumGuest)).BeginInit();
+            this.nudNumGuest = new System.Windows.Forms.NumericUpDown();
             this.pnlBooking.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -73,15 +71,8 @@
             this.pnlTableList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListBooking)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumGuest)).BeginInit();
             this.SuspendLayout();
-            // 
-            // nudNumGuest
-            // 
-            nudNumGuest.Location = new System.Drawing.Point(171, 15);
-            nudNumGuest.Margin = new System.Windows.Forms.Padding(4);
-            nudNumGuest.Name = "nudNumGuest";
-            nudNumGuest.Size = new System.Drawing.Size(160, 22);
-            nudNumGuest.TabIndex = 1;
             // 
             // lblBooking
             // 
@@ -116,6 +107,16 @@
             this.pnlBooking.Name = "pnlBooking";
             this.pnlBooking.Size = new System.Drawing.Size(481, 432);
             this.pnlBooking.TabIndex = 3;
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.Location = new System.Drawing.Point(373, 76);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(99, 77);
+            this.btnRegister.TabIndex = 4;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // btnCheck
             // 
@@ -200,6 +201,7 @@
             this.btnReset.TabIndex = 8;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnDelete
             // 
@@ -230,6 +232,7 @@
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSearch
             // 
@@ -244,7 +247,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(nudNumGuest);
+            this.panel4.Controls.Add(this.nudNumGuest);
             this.panel4.Controls.Add(this.lblGNum);
             this.panel4.Location = new System.Drawing.Point(25, 218);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
@@ -411,15 +414,12 @@
             this.dtgvListBooking.Size = new System.Drawing.Size(531, 176);
             this.dtgvListBooking.TabIndex = 0;
             // 
-            // btnRegister
+            // nudNumGuest
             // 
-            this.btnRegister.Location = new System.Drawing.Point(373, 76);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(99, 77);
-            this.btnRegister.TabIndex = 4;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.nudNumGuest.Location = new System.Drawing.Point(169, 15);
+            this.nudNumGuest.Name = "nudNumGuest";
+            this.nudNumGuest.Size = new System.Drawing.Size(160, 22);
+            this.nudNumGuest.TabIndex = 1;
             // 
             // fManager
             // 
@@ -435,7 +435,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manager";
             this.Load += new System.EventHandler(this.fTableManage_Load);
-            ((System.ComponentModel.ISupportInitialize)(nudNumGuest)).EndInit();
             this.pnlBooking.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -449,6 +448,7 @@
             this.pnlTableList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListBooking)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumGuest)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -487,5 +487,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dtgvListTable;
         private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.NumericUpDown nudNumGuest;
     }
 }

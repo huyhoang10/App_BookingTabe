@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BookingTableCs.Process;
 using System.Data.SqlClient;
+using BookingTableCs.Database;
 
 namespace TableBooking
 {
@@ -23,6 +24,7 @@ namespace TableBooking
         {
             LoadDtgvListBooking();
             LoadDtgvListTable();
+            LoadComboboxListTable();
         }
 
 
@@ -35,6 +37,18 @@ namespace TableBooking
         private void LoadDtgvListTable()
         {
             dtgvListTable.DataSource = MyProcess.LoadDtgvListTableGetDate();
+        }
+
+        // end region
+
+        private void LoadComboboxListTable()
+        {
+            string commandText = "select * from isTable ";
+            DataTable table = MyProcess.GetDataWithCommand(commandText);
+            for (int rowi = 0; rowi < table.Rows.Count; rowi++)
+            {
+                cmbTableNumber.Items.Add(table.Rows[rowi]["idTable"]);
+            }
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -83,5 +97,71 @@ namespace TableBooking
             else
                 MessageBox.Show("The phone number entered is invalid!", "Error");
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            LoadDtgvListBooking();
+            LoadDtgvListTable();
+            dtpSearch.Value = DateTime.Now;
+            txtIdCustomer.Text = "";
+            txtIdTable.Text = "";
+            txtNameCustomer.Text = "";
+            txtNumPhone.Text = "";
+            cmbTableNumber.Text = "";
+        }
+
+        // Region Booking Table
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (CheckBooking() == false)
+                MessageBox.Show("Table reservation error, Please check the information again.", "Error");
+            else
+            {
+                BookingTable();
+                MessageBox.Show(
+                "Thank you for choosing our restaurant.\n",
+                //"Note: You are only able to change or cancel the table information 1 hour before the arrangement",
+                "Note",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+            }
+        }
+
+        // check the validity of the information
+        public bool CheckBooking()
+        {
+            if (dtpSearch.Value < DateTime.Now)
+                return false;
+            DataTable table = MyProcess.LoadDtgvListTableSearchDate(dtpSearch.Text);
+            int numTable;
+            if (nudNumGuest.Value == 0)
+                return false;
+            if (Int32.TryParse(cmbTableNumber.Text.ToString(), out numTable) == false)
+                return false;
+            if (numTable <= 0 || numTable > table.Rows.Count)
+                return false;
+            if (table.Rows[numTable - 1]["Status"].ToString() == "1")   // -1: because row of table start from 0, "1": status Booked
+                return false;
+            int numGuestCustomerBooking = Int32.Parse(nudNumGuest.Value.ToString());
+            int numMaxGuest = Int32.Parse(table.Rows[numTable - 1]["MaxGuest"].ToString());
+            if (numGuestCustomerBooking > numMaxGuest)
+                return false;
+            return true;
+        }
+
+        // Insert info Booking into SQL
+        public void BookingTable()
+        {
+            SqlConnection connection = DTB.ConnectionSql();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "insert into BOOKING " +
+                                  "(idCustomer, idTable, dateBooking, numGuest) " +
+                                  "values('" + txtIdCustomer.Text + "','" + cmbTableNumber.Text + "','" + dtpSearch.Text + "','" + nudNumGuest.Value.ToString() + "')";
+            command.ExecuteNonQuery();
+            LoadDtgvListBooking();
+            dtgvListTable.DataSource = MyProcess.LoadDtgvListTableSearchDate(dtpSearch.Text);
+        }
+
+        // end Region
     }
 }

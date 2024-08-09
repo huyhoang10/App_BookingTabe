@@ -94,6 +94,7 @@ namespace BookingTableCs.Process
             return MyProcess.GetDataWithCommand(commandText);
         }
         // endRegion
+
         public static void GetInfoCustomer(int idCustomer, string nameCustomer, string numPhone)
         {
             customer.IdCustomer = idCustomer;
