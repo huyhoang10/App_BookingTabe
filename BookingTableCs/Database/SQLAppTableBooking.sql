@@ -83,12 +83,13 @@ where dateBooking = '20240820' and statusTbl = 0
 select * from BOOKING as bk, isTable as tbl
 where bk.dateBooking = '20240818' and bk.idTable = tbl.idTable
 
-select * from isTable 
-inner join BOOKING
-on BOOKING.idTable = isTable.idTable
-where dateBooking = GETDATE()
+select bk.idBooking ,bk.dateBooking, ctm.nameCustomer, bk.idTable, bk.numGuest from BOOKING as bk
+inner join Customer as ctm
+on bk.idCustomer = ctm.idCustomer
+where dateBooking >= GETDATE()
+order by dateBooking
 
-select idTable[NumTable], maxguest[MaxGuest], statusTbl[Status] from isTable
+
 
 --END SELECT
 

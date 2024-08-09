@@ -72,11 +72,42 @@ namespace BookingTableCs.Process
         }
 
         // end Region
+
+        // Region LoadDtgvListBooking
+        public static DataTable LoadDtgvListBooking()
+        {
+            string commandText = "select bk.idBooking ,bk.dateBooking, ctm.nameCustomer, bk.idTable, bk.numGuest from BOOKING as bk " +
+                                 " inner join Customer as ctm" +
+                                 " on bk.idCustomer = ctm.idCustomer" +
+                                 " where dateBooking >= GETDATE()" +
+                                 " order by dateBooking";
+            return MyProcess.GetDataWithCommand(commandText);
+        }
+
+        public static DataTable LoadDtgvListBookingSearchDate(string date)
+        {
+            string commandText = "select bk.idBooking ,bk.dateBooking, ctm.nameCustomer, bk.idTable, bk.numGuest from BOOKING as bk " +
+                                 " inner join Customer as ctm" +
+                                 " on bk.idCustomer = ctm.idCustomer" +
+                                 " where dateBooking = '"+date+"' " +
+                                 " order by dateBooking";
+            return MyProcess.GetDataWithCommand(commandText);
+        }
+        // endRegion
         public static void GetInfoCustomer(int idCustomer, string nameCustomer, string numPhone)
         {
             customer.IdCustomer = idCustomer;
             customer.NameCustomer = nameCustomer;
             customer.NumPhone = numPhone;
+        }
+
+        public static void RegisterCustomer(string nameCustomer, string numPhone)
+        {
+            SqlCommand command = DTB.ConnectionSql().CreateCommand();
+            command.CommandText = "insert into Customer " +
+                                  "(nameCustomer, numPhone) " +
+                                  "values('"+nameCustomer+"','"+numPhone+"')";
+            command.ExecuteNonQuery();
         }
 
     }
