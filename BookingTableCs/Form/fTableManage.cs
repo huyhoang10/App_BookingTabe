@@ -27,7 +27,8 @@ namespace TableBooking
 
         void LoadDtgvListTable()
         {
-            dtgvListTable.DataSource = MyProcess.LoadDtgvListTableGetDate();
+            string commandText = "select idTable[NumTable], maxGuest[MaxGuest] from isTable ";
+            dtgvListTable.DataSource = MyProcess.GetDataWithCommand(commandText);
         }
 
         private void btnAddTable_Click(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace TableBooking
                     if (row["NumTable"].ToString() == nudNumTable.Value.ToString())
                     {
                         checkInsertTable = false;
-                        MessageBox.Show("Lỗi! Bàn đã tồn tại.", "Thông Báo");
+                        MessageBox.Show("Table already exists!", "Error");
                         break;
                     }
                 }

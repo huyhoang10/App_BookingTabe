@@ -40,12 +40,7 @@ namespace TableBooking
         }
         public void LoadDataCombobox()
         {
-            string commandText = "select * from isTable ";
-            DataTable table = MyProcess.GetDataWithCommand(commandText);
-            for(int rowi=0;rowi<table.Rows.Count;rowi++)
-            {
-                cmbTableNumber.Items.Add(table.Rows[rowi]["idTable"]);
-            }
+            
         }
         public void LoadDtgvListTable()
         {
