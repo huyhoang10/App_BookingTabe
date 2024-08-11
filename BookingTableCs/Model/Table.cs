@@ -9,7 +9,6 @@ namespace BookingTableCs.Model
     
     class OBJTable
     {
-
         private int numTable;
         private int maxGuest;
         private int statusTable = 0;
@@ -19,8 +18,6 @@ namespace BookingTableCs.Model
             this.numTable = numTable;
             this.maxGuest = maxGuest;
         }
-        //public OBJTable()
-        //{ }
 
         public int NumTable
         {

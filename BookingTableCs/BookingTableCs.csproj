@@ -149,7 +149,6 @@
   <ItemGroup>
     <Content Include="bin\Debug\BookingTableCs.exe" />
     <Content Include="bin\Debug\BookingTableCs.pdb" />
-    <Content Include="Database\databaseAppBookingTabe.sql" />
     <Content Include="Database\SQLAppTableBooking.sql" />
     <Content Include="obj\Debug\BookingTableCs.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\BookingTableCs.exe" />

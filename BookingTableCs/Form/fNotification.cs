@@ -18,11 +18,7 @@ namespace TableBooking
             InitializeComponent();
         }
 
-        private void lblThongBao_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // show fCustomer if select button Customer
         private void btnCustomer_Click(object sender, EventArgs e)
         {
             Form f = new fLogin();
@@ -31,12 +27,18 @@ namespace TableBooking
             this.Show();
         }
 
+        // show fManager if select button Customer
         private void btnManager_Click(object sender, EventArgs e)
         {
             fManager f = new fManager();
             this.Hide();
             f.ShowDialog(); 
             this.Show();
+        }
+
+        private void fNotification_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

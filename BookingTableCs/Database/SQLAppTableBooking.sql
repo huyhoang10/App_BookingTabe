@@ -75,11 +75,6 @@ select * from isTable as tbl
 select * from Customer as ctm
 select * from BOOKING as bk
 
-/*
-select tbl.idTable[số bàn],tbl.maxguest[Số khách tối đa], tbl.statusTbl[Trạng thái] from BOOKING as bk, isTable as tbl--, statusTable as stbl
-where dateBooking = '20240820' and statusTbl = 0
-*/
-
 select * from BOOKING as bk, isTable as tbl
 where bk.dateBooking = '20240818' and bk.idTable = tbl.idTable
 
@@ -89,8 +84,4 @@ on bk.idCustomer = ctm.idCustomer
 where dateBooking >= GETDATE()
 order by dateBooking
 
-
-
 --END SELECT
-
---update isTable set statusTbl = 1 where isTable.idTable = 2

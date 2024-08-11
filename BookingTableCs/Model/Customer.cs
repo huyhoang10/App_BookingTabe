@@ -8,7 +8,7 @@ namespace BookingTableCs.Model
 {
     class Customer
     {
-        private int idCustomer;
+        private int idCustomer;                 // OOP: Encapsulation (đóng gói)
         private string nameCustomer;
         private string numPhone ;
 
@@ -28,7 +28,7 @@ namespace BookingTableCs.Model
             set { idCustomer = value; }
         }
 
-        public string NameCustomer
+        public string NameCustomer          //      OOP: Encapsulation (đóng gói)
         {
             get { return nameCustomer; }
             set { nameCustomer = value; }
@@ -41,4 +41,34 @@ namespace BookingTableCs.Model
 
         }
     }
+
+    abstract class CustomerVip : Customer           // OOP: abstract (trừu tượng): không thể tạo đối tượng từ lớp này
+    {
+        private float discount;
+        public virtual float Discount()
+        {
+            discount = 0;
+            return discount;
+        }
+    }
+
+    class SilverCustomer : CustomerVip              // OOP: Inheritance (kế thừa): 
+    {
+        private float discount = 0.04f;
+        public override float Discount()            // OOP: Polymorphism (đa hình)
+        {
+            return discount;
+            return base.Discount();
+        }
+    }
+    class GoldCustomer : CustomerVip
+    {
+        private float discount = 0.07f;
+        public override float Discount()            // OOP: Polymorphism (đa hình)
+        {
+            return discount;
+            return base.Discount();
+        }
+    }
+
 }

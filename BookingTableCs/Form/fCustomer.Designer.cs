@@ -64,6 +64,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.pnlBooking.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumGuest)).BeginInit();
@@ -81,6 +83,8 @@
             // pnlBooking
             // 
             this.pnlBooking.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlBooking.Controls.Add(this.label9);
+            this.pnlBooking.Controls.Add(this.label8);
             this.pnlBooking.Controls.Add(this.btnBook);
             this.pnlBooking.Controls.Add(this.panel4);
             this.pnlBooking.Controls.Add(this.panel5);
@@ -96,10 +100,10 @@
             // btnBook
             // 
             this.btnBook.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBook.Location = new System.Drawing.Point(145, 356);
+            this.btnBook.Location = new System.Drawing.Point(114, 331);
             this.btnBook.Margin = new System.Windows.Forms.Padding(4);
             this.btnBook.Name = "btnBook";
-            this.btnBook.Size = new System.Drawing.Size(115, 39);
+            this.btnBook.Size = new System.Drawing.Size(160, 39);
             this.btnBook.TabIndex = 5;
             this.btnBook.Text = "Book";
             this.btnBook.UseVisualStyleBackColor = true;
@@ -303,7 +307,7 @@
             this.panel6.Location = new System.Drawing.Point(37, 56);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(415, 49);
+            this.panel6.Size = new System.Drawing.Size(415, 44);
             this.panel6.TabIndex = 2;
             // 
             // txtIdTable
@@ -394,6 +398,24 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "1: Booked";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(21, 399);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(387, 17);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "If you want to modify information or cancel your reservation, ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 416);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(192, 17);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "please contact: 0123456789.";
+            // 
             // fCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -416,6 +438,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fTableManager_FormClosing);
             this.Load += new System.EventHandler(this.fTableManager_Load);
             this.pnlBooking.ResumeLayout(false);
+            this.pnlBooking.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudNumGuest)).EndInit();
             this.panel5.ResumeLayout(false);
@@ -471,5 +494,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }
