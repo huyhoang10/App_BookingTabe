@@ -29,6 +29,7 @@ namespace BookingTableCs.Process
             adapter.Fill(table);
             return table;
         }
+
         // end Region
 
         // Region Get data and change statusTable for dtgvListTable on Today
@@ -49,7 +50,6 @@ namespace BookingTableCs.Process
             }
             return tblIsTable;
         }
-
         // end Region
 
         // Region Region Get data and change statusTable for dtgvListTable on the date you want to search
@@ -70,7 +70,6 @@ namespace BookingTableCs.Process
             }
             return tblIsTable;
         }
-
         // end Region
 
         // Region LoadDtgvListBooking
@@ -83,7 +82,6 @@ namespace BookingTableCs.Process
                                  " order by dateBooking";
             return MyProcess.GetDataWithCommand(commandText);
         }
-
         public static DataTable LoadDtgvListBookingSearchDate(string date)
         {
             string commandText = "select bk.idBooking ,bk.dateBooking, ctm.nameCustomer, bk.idTable, bk.numGuest from BOOKING as bk " +
@@ -95,13 +93,16 @@ namespace BookingTableCs.Process
         }
         // endRegion
 
+        // Region Get info of Customer
         public static void GetInfoCustomer(int idCustomer, string nameCustomer, string numPhone)
         {
             customer.IdCustomer = idCustomer;
             customer.NameCustomer = nameCustomer;
             customer.NumPhone = numPhone;
         }
+        //end Region
 
+        // Region Register Customer
         public static void RegisterCustomer(string nameCustomer, string numPhone)
         {
             SqlCommand command = DTB.ConnectionSql().CreateCommand();
@@ -110,6 +111,6 @@ namespace BookingTableCs.Process
                                   "values('"+nameCustomer+"','"+numPhone+"')";
             command.ExecuteNonQuery();
         }
-
+        //end Region
     }
 }

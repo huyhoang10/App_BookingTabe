@@ -31,6 +31,7 @@ namespace TableBooking
             dtgvListTable.DataSource = MyProcess.GetDataWithCommand(commandText);
         }
 
+        // Region operations in the form
         private void btnAddTable_Click(object sender, EventArgs e)
         {
             
@@ -68,5 +69,23 @@ namespace TableBooking
 
         }
 
+        private void dtgvListTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int currentrow;
+            currentrow = dtgvListTable.CurrentCell.RowIndex;
+            nudNumTable.Value = Int32.Parse(dtgvListTable.Rows[currentrow].Cells[0].Value.ToString());
+            nudMaxGuest.Value = Int32.Parse(dtgvListTable.Rows[currentrow].Cells[1].Value.ToString());
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            SqlConnection connection = DTB.ConnectionSql();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "Update isTable set maxguest = '" + nudMaxGuest.Value + "' where idTable = '" + nudNumTable.Value + "' ";
+            command.ExecuteNonQuery();
+            LoadDtgvListTable();
+        }
+
+        // end Region
     }
 }

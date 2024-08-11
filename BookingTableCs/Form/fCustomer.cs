@@ -38,16 +38,20 @@ namespace TableBooking
             txtnumPhone.Text = MyProcess.customer.NumPhone;
             txtIdCustomer.Text = MyProcess.customer.IdCustomer.ToString();
         }
-        public void LoadDataCombobox()
+        private void LoadDataCombobox()
         {
-            
+            string commandText = "select * from isTable ";
+            DataTable table = MyProcess.GetDataWithCommand(commandText);
+            for (int rowi = 0; rowi < table.Rows.Count; rowi++)
+            {
+                cmbTableNumber.Items.Add(table.Rows[rowi]["idTable"]);
+            }
         }
-        public void LoadDtgvListTable()
+        private void LoadDtgvListTable()
         {
             dtgvListTable.DataSource = MyProcess.LoadDtgvListTableGetDate();
         }
-
-        public void LoadDtgvCustomer()
+        private void LoadDtgvCustomer()
         {
             string commandText = "Select idBooking, datebooking, idtable, numguest from Booking "+ 
                                  "where idCustomer = '"+txtIdCustomer.Text+"' "+
@@ -71,6 +75,7 @@ namespace TableBooking
             Close();   
         }
         // end Region
+
 
         // Region Search
         private void btnSearch_Click(object sender, EventArgs e)
@@ -97,8 +102,8 @@ namespace TableBooking
             }
         }
 
-        // check the validity of the information
-        public bool CheckBooking()
+            // check the validity of the information
+        private bool CheckBooking()
         {
             if (dtpCustomerBook.Value < DateTime.Now)
                 return false;
@@ -119,8 +124,8 @@ namespace TableBooking
             return true;
         }
 
-        // Insert info Booking into SQL
-        public void BookingTable()
+            // Insert info Booking into SQL
+        private void BookingTable()
         {
             SqlConnection connection = DTB.ConnectionSql();
             SqlCommand command = connection.CreateCommand();

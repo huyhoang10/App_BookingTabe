@@ -12,6 +12,7 @@ using BookingTableCs.Process;
 using BookingTableCs.Database;
 using TableBooking;
 using BookingTableCs.Model;
+using System.Data.SqlClient;
 namespace BookingTableCs
 {
     public partial class fLogin : Form
@@ -25,6 +26,7 @@ namespace BookingTableCs
         {
         }
 
+        // Region Login
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Form f = new fCustomer();
@@ -35,9 +37,11 @@ namespace BookingTableCs
                 this.Show();
             }
             else
-                MessageBox.Show("Account is not registered!","Error");
+                MessageBox.Show("Account is not registered! Register now","Error");
         }
-        public bool CheckLogin(string numPhone)
+
+            // Check if the account exists or not
+        private bool CheckLogin(string numPhone)
         {
             string commamdText = "Select * from Customer";
             DataTable table = MyProcess.GetDataWithCommand(commamdText);
@@ -55,5 +59,28 @@ namespace BookingTableCs
             return false;
         }
 
+        // end Region
+
+        // Region Register
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            if (CheckLogin(txtNumPhoneLogin.Text) == true)
+                MessageBox.Show("This account already exists!", "Notification");
+            else if (txtNumPhoneLogin.Text.Length != 10)
+                MessageBox.Show("The phone number entered is invalid! Phone number must have 10 digits.", "Error");
+            else
+            {
+                SqlConnection connection = DTB.ConnectionSql();
+                SqlCommand command = connection.CreateCommand();
+                command.CommandText = "insert into Customer " +
+                                      "(nameCustomer,numPhone) " +
+                                      "values ('" + txtNameCustomer.Text + "' , '" + txtNumPhoneLogin.Text   + "' )";
+                command.ExecuteNonQuery();
+                MessageBox.Show("Thank you for registering, please log in again.", "Notification");
+            }    
+
+        }
+
+        // end Region
     }
 }

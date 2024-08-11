@@ -8,11 +8,6 @@ namespace BookingTableCs.Model
 {
     class Booking
     {
-        //    idCustomer int not null,
-        //idTable int not null,
-        //dateBooking datetime not null,
-        //numGuest int not null,
-
         private string idCustomer;
         private DateTime dateBooking;
         private int idTable;
